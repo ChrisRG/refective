@@ -15,7 +15,11 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     @space.user = current_user
-    @space.item_type = ItemType.all.last
+    # TODO: Add Item Type field to form: f.association :item_Type
+    space_item = SpaceItemType.new
+    space_item.item_type = ItemType.last
+    space_item.space = @space
+    space_item.save
     if @space.save
       redirect_to space_path(@space)
     else

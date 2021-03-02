@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_space
+  before_action :set_space, only: :show
   
   def index
     @spaces = Space.all

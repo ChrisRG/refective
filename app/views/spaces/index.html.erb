@@ -1,0 +1,9 @@
+<div class="container">
+  <% @spaces.each do |space| %>
+    <h2> <%= link_to space.name, space_path(space) %> </h2>
+    <p> <%= space.address %> </p>
+    <p> <%= space.description %> </p>
+    <p> <%= space.availability %> </p>
+    <p> <%= space.phone_number %> </p>
+  <% end %>
+</div>

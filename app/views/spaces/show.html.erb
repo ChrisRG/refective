@@ -7,4 +7,12 @@
   </div>
   <%#= render "shared/space-reviews"  %>
   <%#= render "shared/space-map"  %>
+  <h3>Book</h3>
+  <%= simple_form_for([@space, @booking]) do |f| %>
+    <%= f.association :item_type %>
+    <%= f.input :item_description %>
+    <%= f.input :comment %>
+    <%= f.input :date %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
 </div>

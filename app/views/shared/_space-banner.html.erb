@@ -4,9 +4,9 @@
     <%# if !@space.bookings.reviews.rating.nil? %>
       <p><%#= @space.bookings.reviews.rating %></p>
       <p>5/5 (10)</p>
-      <p><%#= @space.address %></p>
+      <p class="ml-1"><%= @space.address %></p>
     <%# else %>
-     <p><%= @space.address %></p>
+     <p><%#= @space.address %></p>
     <%# end %> 
   </div>
   <div class="space-photo">
@@ -14,7 +14,7 @@
     <img src="https://images.pexels.com/photos/4480505/pexels-photo-4480505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
   </div>
   <div class="space-owner d-flex">
-    <h2><%= @space.user.full_name %></h2>
+    <h2>by <%= @space.user.full_name %></h2>
     <%#= Add Owner Avatar %>
   </div>
 </div>

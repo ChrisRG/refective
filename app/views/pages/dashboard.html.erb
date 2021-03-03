@@ -1,9 +1,9 @@
-<div class="container mt-3">
+<div class="container" style="margin-top: 5em">
   <h1>dashboard</h1>
   
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="booking-tab" href="#bookings"data-toggle="tab" role="tab" aria-controls="booking" aria-selected="true">my booking</a>
+      <a class="nav-link active" id="booking-tab" href="#bookings"data-toggle="tab" role="tab" aria-controls="booking" aria-selected="true">my bookings</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="space-tab" href="#spaces"data-toggle="tab" role="tab" aria-controls="space" aria-selected="false">my spaces</a>
@@ -12,9 +12,33 @@
       <a class="nav-link" id="review-tab" href="#reviews"data-toggle="tab" role="tab" aria-controls="review" aria-selected="false">my reviews</a>
     </li>
   </ul>
+
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="booking-tab">test </div>
-    <div class="tab-pane fade" id="spaces" role="tabpanel" aria-labelledby="space-tab">second test </div>
-    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="review-tab">third test </div>
+    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="booking-tab">
+      <div class="cards">
+        <% current_user.bookings.each do |booking| %>
+          <%= link_to space_path(booking.space), class: "card-links" do %>
+            <%= render partial: "shared/booking-card", locals: {space: booking.space} %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="spaces" role="tabpanel" aria-labelledby="space-tab">
+      <div class="cards">
+        <% current_user.spaces.each do |space| %>
+          <%= link_to space_path(space), class: "card-links" do %>
+            <%= render partial: "shared/booking-card", locals: {space: space} %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="review-tab">
+      <div class="mt-3 text-center">
+        <p>Looks like you haven't left any reviews yet!</p>
+      </div>
+    </div>
   </div>
+
 </div>

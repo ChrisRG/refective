@@ -28,7 +28,7 @@
       <div class="cards">
         <% current_user.spaces.each do |space| %>
           <%= link_to space_path(space), class: "card-links" do %>
-            <%= render partial: "shared/booking-card", locals: {space: space} %>
+            <%= render partial: "shared/dashboard-space-card", locals: {space: space} %>
           <% end %>
         <% end %>
       </div>
@@ -40,5 +40,4 @@
       </div>
     </div>
   </div>
-
 </div>

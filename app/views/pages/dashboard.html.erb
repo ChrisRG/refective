@@ -28,7 +28,7 @@
       <div class="cards">
         <% current_user.spaces.each do |space| %>
           <%= link_to space_path(space), class: "card-links" do %>
-            <%= render "shared/dashboard-space-card", space: space %>
+            <%= render "shared/dashboard_space_card", space: space %>
           <% end %>
         <% end %>
       </div>

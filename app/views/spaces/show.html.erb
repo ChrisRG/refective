@@ -12,7 +12,8 @@
     <%= f.association :item_type %>
     <%= f.input :item_description %>
     <%= f.input :comment %>
-    <%= f.input :date %>
-    <%= f.submit class: "btn btn-primary" %>
+
+    <%= f.input :date, as: :string, input_html: {class: "datepicker"} %>
+    <%= f.submit class: "btn btn-success" %>
   <% end %>
 </div>

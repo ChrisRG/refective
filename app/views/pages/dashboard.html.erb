@@ -16,9 +16,9 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="booking-tab">
       <div class="cards">
-        <% current_user.bookings.each do |booking| %>
+        <% @bookings.each do |booking| %>
           <%= link_to space_path(booking.space), class: "card-links" do %>
-            <%= render partial: "shared/booking-card", locals: {space: booking.space} %>
+            <%= render "shared/booking_card", booking: booking %>
           <% end %>
         <% end %>
       </div>
@@ -26,9 +26,9 @@
 
     <div class="tab-pane fade" id="spaces" role="tabpanel" aria-labelledby="space-tab">
       <div class="cards">
-        <% current_user.spaces.each do |space| %>
-          <%= link_to space_path(space), class: "card-links" do %>
-            <%= render partial: "shared/booking-card", locals: {space: space} %>
+        <% current_user.bookings.each do |booking| %>
+          <%= link_to space_path(booking.space), class: "card-links" do %>
+            <%= render "shared/booking_card", booking: booking %>
           <% end %>
         <% end %>
       </div>

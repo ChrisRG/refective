@@ -1,12 +1,16 @@
 <div class="container" style="margin-top: 5em">
-  <div class="text-center">
-    <h2>Nearby repair spaces</h2>
-  </div>
-  <div class="cards">
-    <% @spaces.each do |space| %>
-      <%= link_to space_path(space), class: "card-links" do %>
-        <%= render partial: "shared/space_index_card", locals: {space: space} %>
+  <div class="d-flex justify-content-center">
+    <div class="cards">
+      <% @spaces.each do |space| %>
+        <%= link_to space_path(space), class: "card-links" do %>
+          <%= render partial: "shared/space_index_card", locals: {space: space} %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      style="margin-top: -5em">
+    </div>
   </div>
 </div>

@@ -2,7 +2,8 @@
   <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
   <div class="card-product-infos">
     <div class="card-product-title">
-      <h2><%= booking.space.name %></h2>
+      <h2><%= booking.space.name %><i class="fa fa-check fa-2x"></h2>
+      <p></i></p>
     </div>
     <div>
       <p><i class="fa fa-calendar"></i>

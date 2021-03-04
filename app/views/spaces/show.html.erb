@@ -1,12 +1,12 @@
 <div class="container">
-  <%= render "shared/space-banner" %>
+  <%= render "shared/space_banner" %>
   <div class="info-container w-50">
-    <%= render "shared/space-info" %>
-    <%= render "shared/space-services"  %>
-    <%= render "shared/space-availability" %>
+    <%= render "shared/space_info" %>
+    <%= render "shared/space_services"  %>
+    <%= render "shared/space_availability" %>
   </div>
-  <%#= render "shared/space-reviews"  %>
-  <%#= render "shared/space-map"  %>
+  <%#= render "shared/space_reviews"  %>
+  <%#= render "shared/space_map"  %>
   <h3>Book</h3>
   <%= simple_form_for([@space, @booking]) do |f| %>
     <%= f.association :item_type %>

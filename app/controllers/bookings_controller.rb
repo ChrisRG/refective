@@ -19,6 +19,12 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to dashboard_path, notice: "Booking saved"
+  end
+
   private
 
   def set_space
@@ -26,6 +32,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:item_description, :comment, :date)
+    params.require(:booking).permit(:item_type_id, :item_description, :comment, :date)
   end
 end

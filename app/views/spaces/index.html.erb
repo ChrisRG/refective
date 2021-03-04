@@ -2,7 +2,7 @@
   <div class="cards">
     <% @spaces.each do |space| %>
       <%= link_to space_path(space), class: "card-links" do %>
-        <%= render partial: "shared/space-index-card", locals: {space: space} %>
+        <%= render partial: "shared/space_index_card", locals: {space: space} %>
       <% end %>
     <% end %>
   </div>

@@ -9,8 +9,13 @@
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
       <div class="card-icons">
-        <p><i class="fa fa-pencil fa"></i></p>
-        <p><i class="fa fa-trash fa"></i></p>
+        <i class="fa fa-pencil fa"></i>
+        <%= link_to space_path(space), 
+         
+         method: :delete, 
+          data: { confirm: "Are you sure you want to delete your space?" } do %> 
+          <i class="fa fa-trash fa"></i>
+        <% end %>
       </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: :show
+  before_action :set_space, only: [:show, :destroy]
   
   def index
     @spaces = Space.all
@@ -26,6 +26,11 @@ class SpacesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @space.destroy
+    redirect_to dashboard_path
   end
 
   private

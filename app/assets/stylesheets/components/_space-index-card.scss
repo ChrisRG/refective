@@ -17,7 +17,7 @@
 }
 
 .card-product-title {
-  // width: 400px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -40,4 +40,15 @@
 .card-product .card-product-infos {
   padding: 5px 16px;
   flex-grow: 1;
+}
+
+.card-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.icon-container {
+  display: flex;
+  align-items: flex-end;
 }

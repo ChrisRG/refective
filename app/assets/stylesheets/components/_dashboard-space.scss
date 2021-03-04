@@ -1,0 +1,10 @@
+.card-product.dashboard {
+  align-items: start;
+  height: 175px;
+}
+.card-product-infos.dashboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

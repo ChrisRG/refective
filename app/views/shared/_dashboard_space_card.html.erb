@@ -1,12 +1,22 @@
-<div class="card-product">
+<div class="card-product dashboard">
   <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
-  <div class="card-product-infos">
+  <div class="card-product-infos dashboard">
     <div class="card-product-title">
       <h2><%= space.name %></h2>
     </div>
     <div>
       <p><i class="fa fa-star-o"></i>5.0</p>
     </div>
+    <p>Total bookings: <%= space.bookings.size %></p>
+      <div class="card-icons">
+        <i class="fa fa-pencil fa"></i>
+        <%= link_to space_path(space), 
+         
+         method: :delete, 
+          data: { confirm: "Are you sure you want to delete your space?" } do %> 
+          <i class="fa fa-trash fa"></i>
+        <% end %>
+      </div>
   </div>
 </div>
 

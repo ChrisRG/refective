@@ -6,14 +6,7 @@
     <%= render "shared/space_availability" %>
   </div>
   <%#= render "shared/space_reviews"  %>
-  <%#= render "shared/space_map"  %>
-  <h3>Book</h3>
-  <%= simple_form_for([@space, @booking]) do |f| %>
-    <%= f.association :item_type %>
-    <%= f.input :item_description %>
-    <%= f.input :comment %>
-
-    <%= f.input :date, as: :string, input_html: {class: "datepicker"} %>
-    <%= f.submit class: "btn btn-success" %>
-  <% end %>
+  <%= render "shared/space_booking" %>
+  <%= render "shared/space_map"  %>
+  
 </div>

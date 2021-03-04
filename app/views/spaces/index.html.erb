@@ -1,4 +1,7 @@
 <div class="container" style="margin-top: 5em">
+  <div class="text-center">
+    <h2>Nearby repair spaces</h2>
+  </div>
   <div class="cards">
     <% @spaces.each do |space| %>
       <%= link_to space_path(space), class: "card-links" do %>

@@ -9,10 +9,11 @@
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
       <div class="card-icons">
-        <i class="fa fa-pencil fa"></i>
+        <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-2"} do %>
+              <i class="fa fa-pencil"></i>
+        <% end %>
         <%= link_to space_path(space), 
-         
-         method: :delete, 
+          method: :delete, 
           data: { confirm: "Are you sure you want to delete your space?" } do %> 
           <i class="fa fa-trash fa"></i>
         <% end %>
@@ -20,3 +21,28 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Edit your space
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for space, remote: true do |f| %>
+          <%= f.input :name, placeholder: space.name %>
+          <%= f.input :address, placeholder: space.address %>
+          <%= f.input :description, placeholder: space.description %>
+          <%= f.input :availability, placeholder: space.availability %>
+          <%= f.input :phone_number, placeholder: space.phone_number %>
+          <%= f.submit "Save changes", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :spaces, only: [:index, :show, :new, :create, :destroy] do
+  resources :spaces, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:update, :destroy]

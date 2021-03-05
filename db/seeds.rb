@@ -17,59 +17,93 @@ puts "** Records deleted. **"
 # Users
 puts "** Seeding users... **"
 User.create(email: "boris@gmail.com", password: "password", full_name: "Boris")
-User.create(email: "amara@gmail.com", password: "password", full_name: "Amara")
+OWNER = User.create(email: "amara@gmail.com", password: "password", full_name: "Amara")
 User.create(email: "chris@gmail.com", password: "password", full_name: "Chris")
 puts "** Users created. **"
 
 # Item Types
 puts "** Seeding item types... **"
-ItemType.create(name: "Appliance", description: "Small home appliances")
-ItemType.create(name: "Computer", description: "Desktop and laptop computers")
-ItemType.create(name: "Bicycle", description: "Road bikes, mountain bikes, city bikes")
+ItemType.create(name: "Appliances", description: "Small home appliances")
+ItemType.create(name: "Computers", description: "Desktop and laptop computers")
+ItemType.create(name: "Bikes", description: "Road bikes, mountain bikes, city bikes")
+ItemType.create(name: "Furniture", description: "Small home furniture")
+ItemType.create(name: "Clothing", description: "Clothing, bags, textiles")
+ItemType.create(name: "Shoes", description: "Sneakers, boots, sandals")
 puts "** Item types created. **"
 
 # Spaces
 puts "** Seeding spaces... **"
+GEN_AVAIL_MSG = "Mon - Fri: 5PM - 10PM, Sat: 10AM - 8PM"
 user_list = User.all.to_a
 space1 = Space.new(
-  name: "Munich Repair Cafe", 
-  address: Faker::Address.street_address, 
+  name: "Reparatur-Café Mohr-Villa", 
+  address: "Situlistraße 73, 80939 München",
   description: Faker::Company.catch_phrase, 
-  availability: Faker::Lorem.sentence(word_count: 10), 
-  phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-  latitude: rand(47.5..48.1),
-  longitude: rand(11.0..11.5)
+  availability: GEN_AVAIL_MSG, 
+  phone_number: "089 324 32 64",
 )
-space1.user = user_list.pop
+space1.user = OWNER
 space1.save
 space2 = Space.new(
-  name: "Scotty's Garage", 
-  address: Faker::Address.street_address, 
+  name: "Repair Café Ottobrunn", 
+  address: "Café Trödel und Tratsch, Haidgraben 1a, 85521 Ottobrunn", 
   description: Faker::Company.catch_phrase, 
-  availability: Faker::Lorem.sentence(word_count: 10), 
+  availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-  latitude: rand(47.5..48.1),
-  longitude: rand(11.0..11.5)
 )
-space2.user = user_list.pop
+space2.user = OWNER
 space2.save
 space3 = Space.new(
-  name: "Apple (we don't) Care", 
-  address: Faker::Address.street_address, 
+  name: "Reparaturcafé am Westpark", 
+  address: "Ehrwalder Str. 87, 81377 München",
   description: Faker::Company.catch_phrase, 
-  availability: Faker::Lorem.sentence(word_count: 10), 
+  availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-  latitude: rand(47.5..48.1),
-  longitude: rand(11.0..11.5)
 )
-space3.user = user_list.pop
+space3.user = OWNER
 space3.save
+space4 = Space.new(
+  name: "WerkBox³ e.V.", 
+  address: "Dachauer Str. 110c, 80636 München",
+  description: Faker::Company.catch_phrase, 
+  availability: GEN_AVAIL_MSG, 
+  phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+)
+space4.user = OWNER
+space4.save
+space5 = Space.new(
+  name: "Nachbarschaftstreff am Walchenseeplatz", 
+  address: "Bayrischzeller Str. 5, 81539 München",
+  description: Faker::Company.catch_phrase, 
+  availability: GEN_AVAIL_MSG, 
+  phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+)
+space5.user = OWNER
+space5.save
+space6 = Space.new(
+  name: "Haus der Eigenarbeit – HEi", 
+  address: "Wörthstraße 42, 81667 München",
+  description: Faker::Company.catch_phrase, 
+  availability: GEN_AVAIL_MSG, 
+  phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+)
+space6.user = OWNER
+space6.save
+space7 = Space.new(
+  name: "Nachbarschaftstreff Karlingerstraße", 
+  address: "Karlingerstraße 30 A, 80992 München",
+  description: Faker::Company.catch_phrase, 
+  availability: GEN_AVAIL_MSG, 
+  phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+)
+space7.user = OWNER
+space7.save
 puts "** Spaces created. **"
 
 # Space Item Types
 puts "** Seeding space item types... **"
 spaces_list = Space.all.to_a
-3.times do 
+7.times do 
   space_item = SpaceItemType.new
   space_item.item_type = ItemType.all.to_a.sample
   space_item.space = spaces_list.pop
@@ -83,8 +117,8 @@ puts "** Seeding bookings... **"
   i_type = ItemType.all.sample
   booking = Booking.new(
     date: Faker::Date.between(from: Date.today, to: 1.month.from_now),
-    item_description: "Fix my #{i_type.name}",
-    comment: Faker::Lorem.sentence(word_count: 8),
+    item_description: "#{i_type.name}",
+    comment: "Need help!",
     status: "confirmed",
   )
   booking.user = User.all.sample

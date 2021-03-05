@@ -13,11 +13,11 @@
     <% if @space.photo.attached? %>
       <%= cl_image_tag @space.photo.key %>
     <% else %>
-      <img src="https://images.pexels.com/photos/4480505/pexels-photo-4480505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+      <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
     <% end %>
   </div>
-  <div class="space-owner d-flex">
-    <h4>by <%= @space.user.full_name %></h4>
+  <div class="space-owner d-flex text-right">
+    <p>Space owner: <%= @space.user.full_name %></p>
     <%#= Add Owner Avatar %>
   </div>
 </div>

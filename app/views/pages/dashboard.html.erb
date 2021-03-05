@@ -29,11 +29,16 @@
 
     <div class="tab-pane fade" id="spaces" role="tabpanel" aria-labelledby="space-tab">
       <div class="cards">
+      <% if current_user.spaces.exists? %>
         <% current_user.spaces.each do |space| %>
           <%= link_to space_path(space), class: "card-links" do %>
             <%= render "shared/dashboard_space_card", space: space %>
           <% end %>
         <% end %>
+      <% else %>
+        <p>You haven't created any space yet! Become a part of our community!</p>
+        <%= link_to  "Create a space", new_space_path, class: "btn btn-success" %>
+      <% end %>
       </div>
     </div>
 

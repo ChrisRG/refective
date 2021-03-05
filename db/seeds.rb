@@ -44,9 +44,11 @@ space1 = Space.new(
 )
 space1.user = OWNER
 space1.save
+
+
 space2 = Space.new(
   name: "Repair Café Ottobrunn", 
-  address: "Café Trödel und Tratsch, Haidgraben 1a, 85521 Ottobrunn", 
+  address: "Haidgraben 1a, 85521 Ottobrunn", 
   description: Faker::Company.catch_phrase, 
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,

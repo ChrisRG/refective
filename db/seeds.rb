@@ -59,7 +59,7 @@ space2.save
 space3 = Space.new(
   name: "Reparaturcafé am Westpark", 
   address: "Ehrwalder Str. 87, 81377 München",
-  description: Faker::Company.catch_phrase, 
+  description: "Come join us in our repair space! We offer both open hours for coming in, as well as experts who can help you out!",
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )

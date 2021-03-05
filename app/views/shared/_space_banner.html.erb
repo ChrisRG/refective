@@ -3,21 +3,17 @@
   <div class="d-flex">
     <%# if !@space.bookings.reviews.rating.nil? %>
       <p><%#= @space.bookings.reviews.rating %></p>
-      <p>5/5 (10)</p>
-      <p class="ml-1"><%= @space.address %></p>
+      <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= @space.address %></p>
     <%# else %>
      <p><%#= @space.address %></p>
     <%# end %> 
+    <p>
   </div>
-  <div class="space-photo">
+  <div class="space-photo" style="border-radius: 15px w-75">
     <% if @space.photo.attached? %>
       <%= cl_image_tag @space.photo.key %>
     <% else %>
       <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
     <% end %>
-  </div>
-  <div class="space-owner d-flex text-right">
-    <p>Space owner: <%= @space.user.full_name %></p>
-    <%#= Add Owner Avatar %>
   </div>
 </div>

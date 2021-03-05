@@ -1,7 +1,13 @@
-<div class="space-info border-top border-bottom">
-  <%#= @space.description %>
-  <p class="my-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil quas voluptatem molestiae excepturi, aspernatur provident magnam vitae. Repellendus rerum, laboriosam adipisci quis, beatae quibusdam reprehenderit cum explicabo suscipit tenetur doloribus?
-  Temporibus nobis hic atque est iusto maiores nam suscipit debitis commodi, laudantium possimus omnis, eius libero ducimus earum modi esse delectus nostrum recusandae veniam, placeat laborum ab pariatur natus! Perspiciatis.
-  Debitis dolore pariatur dolores numquam repellendus odio iure quisquam, maiores placeat officia, vitae iusto mollitia ratione fugiat itaque dolorem! Nam excepturi vel earum quaerat. Adipisci laboriosam quasi illo modi quos.
-  Nam nobis totam quaerat, quam earum quod vel ipsam non voluptates a consequuntur quos fuga nesciunt soluta delectus ipsum mollitia eligendi aliquam repellat. Quo, eos amet voluptatem laborum quas provident?</p>
+<div class="space-info border-bottom mt-4 w-75">
+  <% if @space.description.size > 0 %>
+    <%= @space.description %>
+  <% else %>
+    <p>Come join us in our repair space!</p> 
+    <p>We offer both open hours for coming in, as well as experts who can help you out! </p>
+  <% end %>
+  <hr>
+  <div class="space-owner">
+    <p><i class="fa fa-phone " ></i> <%= @space.phone_number %></p>
+    <%#= Add Owner Avatar %>
+  </div>
 </div>

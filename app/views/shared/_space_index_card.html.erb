@@ -1,19 +1,22 @@
 <div class="card-product card-index">
-  <% if space.photo.attached? %>
+  <div>
+    <% if space.photo.attached? %>
       <%= cl_image_tag space.photo.key %>
     <% else %>
       <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
     <% end %>
+  </div>
   <div class="card-product-infos">
     <div class="card-product-title">
       <h2><%= space.name %></h2>
     </div>
     <div>
       <p><%= space.description %></p>
-      <p>Appliances, Bicycles, and More</p>
+      <p><i class="fa fa-wrench" aria-hidden="true"></i>
+      <%= space.space_item_types.first.item_type.name %></p>
     </div>
     <div>
-      <p><i class="fa fa-star-o"></i>5.0</p>
+      <p><i class="fa fa-star-o"></i><%= rand(3..5) %></p>
     </div>
   </div>
 </div>

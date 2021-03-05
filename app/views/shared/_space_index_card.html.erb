@@ -1,5 +1,9 @@
 <div class="card-product card-index">
-  <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
+  <% if space.photo.attached? %>
+      <%= cl_image_tag space.photo.key %>
+    <% else %>
+      <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
+    <% end %>
   <div class="card-product-infos">
     <div class="card-product-title">
       <h2><%= space.name %></h2>

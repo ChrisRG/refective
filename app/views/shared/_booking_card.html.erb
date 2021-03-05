@@ -1,5 +1,9 @@
 <div class="card-product">
-  <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
+  <% if booking.space.photo.attached? %>
+      <%= cl_image_tag booking.space.photo.key %>
+    <% else %>
+      <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
+    <% end %>
   <div class="card-product-infos">
     <div class="card-product-title">
       <h2><%= booking.space.name %></h2>

@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item_type = ItemType.last
     if @booking.save
-      redirect_to @space, notice: "Booking created!"
+      redirect_to dashboard_path, notice: "Booking created!"
     else
       render "spaces/show"
     end

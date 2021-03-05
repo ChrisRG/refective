@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item_type = ItemType.last
     if @booking.save
-      redirect_to @space
+      redirect_to @space, notice: "Booking created!"
     else
       render "spaces/show"
     end
@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to dashboard_path, notice: "Booking saved"
+    redirect_to dashboard_path, notice: "Booking updated!"
   end
 
   private

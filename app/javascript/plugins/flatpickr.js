@@ -5,6 +5,9 @@ const initFlatpickr = () => {
     minDate: "today",
     enableTime: true,
     time_24hr: true,
+    altInput: true,
+    altFormat: "F j, Y H:i",
+    dateFormat: "Y-m-d",
   });
 };
 

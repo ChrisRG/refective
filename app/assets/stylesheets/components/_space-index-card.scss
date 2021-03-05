@@ -8,8 +8,12 @@
   margin-bottom: 10px;
   border-radius: 15px;
   width: 100%;
+  color: $banner-dark;
 }
 
+.card-product a:hover {
+  text-decoration: none;
+}
 .card-product img {
   height: 100%;
   width: 250px;
@@ -26,6 +30,7 @@
   font-weight: bold;
   margin: 0;
   padding-top: 10px;
+  color: $banner-dark;
 }
 
 .card-product p {
@@ -34,6 +39,7 @@
   opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
+  color: $banner-dark;
 }
 
 .card-product .card-product-infos {
@@ -50,4 +56,12 @@
 .icon-container {
   display: flex;
   align-items: flex-end;
+}
+
+.fa-trash {
+  color: #dc143c;
+}
+
+.fa {
+  margin: 0 3px;
 }

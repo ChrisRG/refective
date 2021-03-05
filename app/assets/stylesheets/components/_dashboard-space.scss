@@ -1,5 +1,6 @@
 .card-product.dashboard {
   align-items: start;
+  color: $banner-dark;
 }
 
 .card-product-infos.dashboard {
@@ -7,4 +8,5 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: $banner-dark;
 }

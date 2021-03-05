@@ -1,7 +1,12 @@
 .nav-link {
   color: $banner-dark;
+  border-radius: 15px;
 }
 
 .nav-link:hover {
   color: #081014;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 15px;
 }

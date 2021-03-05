@@ -43,10 +43,14 @@ space1 = Space.new(
   phone_number: "089 324 32 64",
 )
 space1.user = OWNER
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943858/refective/space1_zuksfp.jpg")
+space1.photo.attach(io: file, filename: "#{bear_species}.jpg", content_type: "image/png")
 space1.save
+
+
 space2 = Space.new(
   name: "Repair Café Ottobrunn", 
-  address: "Café Trödel und Tratsch, Haidgraben 1a, 85521 Ottobrunn", 
+  address: "Haidgraben 1a, 85521 Ottobrunn", 
   description: Faker::Company.catch_phrase, 
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,

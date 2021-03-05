@@ -1,8 +1,10 @@
-<%= simple_form_for([@space, @booking]) do |f| %>
-  <%= f.association :item_type %>
-  <%= f.input :item_description %>
-  <%= f.input :comment %>
-
-  <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
-  <%= f.submit class: "btn btn-success" %>
-<% end %>
+<div>
+  <h4>Book a visit!</h4>
+  <%= simple_form_for([@space, @booking]) do |f| %>
+    <%= f.association :item_type %>
+    <%= f.input :item_description %>
+    <%= f.input :comment %>
+    <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
+    <%= f.submit class: "btn btn-success" %>
+  <% end %>
+</div>

@@ -24,6 +24,7 @@ puts "** Users created. **"
 # Item Types
 puts "** Seeding item types... **"
 ItemType.create(name: "Appliances", description: "Small home appliances")
+ItemType.create(name: "Electronics", description: "Electronic gear")
 ItemType.create(name: "Computers", description: "Desktop and laptop computers")
 ItemType.create(name: "Bikes", description: "Road bikes, mountain bikes, city bikes")
 ItemType.create(name: "Furniture", description: "Small home furniture")
@@ -59,7 +60,7 @@ space2.save
 space3 = Space.new(
   name: "Reparaturcafé am Westpark", 
   address: "Ehrwalder Str. 87, 81377 München",
-  description: "Come join us in our repair space! We offer both open hours for coming in, as well as experts who can help you out!",
+  description: Faker::Company.catch_phrase, 
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )

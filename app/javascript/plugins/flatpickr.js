@@ -4,6 +4,7 @@ const initFlatpickr = () => {
   flatpickr(".datepicker", {
     minDate: "today",
     enableTime: true,
+    time_24hr: true,
   });
 };
 

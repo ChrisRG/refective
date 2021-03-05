@@ -16,9 +16,9 @@ puts "** Records deleted. **"
 
 # Users
 puts "** Seeding users... **"
-User.create(email: "boris@gmail.com", password: "password", full_name: "Boris")
-OWNER = User.create(email: "amara@gmail.com", password: "password", full_name: "Amara")
-User.create(email: "chris@gmail.com", password: "password", full_name: "Chris")
+User.create!(email: "boris@gmail.com", password: "password", full_name: "Boris")
+owner = User.create!(email: "amara@gmail.com", password: "password", full_name: "Amara")
+User.create!(email: "chris@gmail.com", password: "password", full_name: "Chris")
 puts "** Users created. **"
 
 # Item Types
@@ -42,10 +42,8 @@ space1 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: "089 324 32 64",
 )
-space1.user = OWNER
-file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943858/refective/space1_zuksfp.jpg")
-space1.photo.attach(io: file, filename: "#{bear_species}.jpg", content_type: "image/png")
-space1.save
+space1.user = owner
+space1.save!
 
 
 space2 = Space.new(
@@ -55,8 +53,9 @@ space2 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space2.user = OWNER
+space2.user = owner
 space2.save
+
 space3 = Space.new(
   name: "Reparaturcafé am Westpark", 
   address: "Ehrwalder Str. 87, 81377 München",
@@ -64,7 +63,7 @@ space3 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space3.user = OWNER
+space3.user = owner
 space3.save
 space4 = Space.new(
   name: "WerkBox³ e.V.", 
@@ -73,7 +72,7 @@ space4 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space4.user = OWNER
+space4.user = owner
 space4.save
 space5 = Space.new(
   name: "Nachbarschaftstreff am Walchenseeplatz", 
@@ -82,7 +81,7 @@ space5 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space5.user = OWNER
+space5.user = owner
 space5.save
 space6 = Space.new(
   name: "Haus der Eigenarbeit – HEi", 
@@ -91,7 +90,7 @@ space6 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space6.user = OWNER
+space6.user = owner
 space6.save
 space7 = Space.new(
   name: "Nachbarschaftstreff Karlingerstraße", 
@@ -100,9 +99,41 @@ space7 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space7.user = OWNER
+space7.user = owner
 space7.save
 puts "** Spaces created. **"
+
+
+puts "** Attaching images... **"
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943858/refective/space1_zuksfp.jpg")
+space1.photo.attach(io: file, filename: "#{space1.name}.jpg", content_type: "image/jpg")
+space1.save!
+
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943854/refective/space2_byeljp.jpg")
+space2.photo.attach(io: file, filename: "#{space2.name}.jpg", content_type: "image/jpg")
+space2.save!
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943852/refective/space3_k8xkfk.jpg")
+space3.photo.attach(io: file, filename: "#{space3.name}.jpg", content_type: "image/jpg")
+space3.save!
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943856/refective/space4_tr7fqh.jpg")
+space4.photo.attach(io: file, filename: "#{space4.name}.jpg", content_type: "image/jpg")
+space4.save!
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943842/refective/space5_rqkvog.jpg")
+space5.photo.attach(io: file, filename: "#{space5.name}.jpg", content_type: "image/jpg")
+space5.save!
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943846/refective/space6_mvh7oo.jpg")
+space6.photo.attach(io: file, filename: "#{space6.name}.jpg", content_type: "image/jpg")
+space6.save!
+
+file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943857/refective/space7_obhfea.jpg")
+space7.photo.attach(io: file, filename: "#{space7.name}.jpg", content_type: "image/jpg")
+space7.save!
+puts "** Images attached. **"
 
 # Space Item Types
 puts "** Seeding space item types... **"

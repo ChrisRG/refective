@@ -13,14 +13,21 @@
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
       <div class="card-icons">
-        <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-2"} do %>
-              <i class="fa fa-pencil"></i>
+
+        <% if policy(space).update? %>
+          <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-2"} do %>
+                <i class="fa fa-pencil"></i>
+          <% end %>
         <% end %>
-        <%= link_to space_path(space), 
-          method: :delete, 
-          data: { confirm: "Are you sure you want to delete your space?" } do %> 
-          <i class="fa fa-trash fa"></i>
+
+        <% if policy(space).destroy? %>
+          <%= link_to space_path(space), 
+            method: :delete, 
+            data: { confirm: "Are you sure you want to delete your space?" } do %> 
+            <i class="fa fa-trash fa"></i>
+          <% end %>
         <% end %>
+
       </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ const initFlatpickr = () => {
     time_24hr: true,
     altInput: true,
     altFormat: "F j, Y H:i",
-    dateFormat: "Y-m-d",
+    dateFormat: "Y-m-d H:i",
   });
 };
 

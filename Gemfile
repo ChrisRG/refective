@@ -64,10 +64,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Faker for seeding
 gem 'faker'
 
-# Dotenv for secret keys in development
-gem 'dotenv-rails', groups: [:development, :test]
-
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
 # geocoder for geocoding
 gem 'geocoder'
+
+# Pundit for authorization
+gem 'pundit'

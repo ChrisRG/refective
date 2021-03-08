@@ -42,7 +42,10 @@
       <% else %>
         <p>You haven't created any space yet! Become a part of our community!</p>
       <% end %>
-      <%= link_to  "Create a space", new_space_path, class: "btn btn-success" %>
+      <% if policy(Space).create? %>
+        <%= link_to "Create a space", new_space_path, class: "btn btn-success" %>
+      <% end %>
+      <%# <%= link_to  "Create a space", new_space_path, class: "btn btn-success" %1> %>
       </div>
     </div>
 

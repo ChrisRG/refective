@@ -4,12 +4,12 @@ require "open-uri"
 puts "=====[ Seeding database ]====="
 puts "** Deleting previous records... **"
 
+Message.delete_all
 Booking.delete_all
 SpaceItemType.delete_all
 Space.delete_all
 ItemType.delete_all
 User.delete_all
-Message.delete_all
 Review.delete_all
 
 puts "** Records deleted. **"
@@ -17,7 +17,7 @@ puts "** Records deleted. **"
 # Users
 puts "** Seeding users... **"
 User.create!(email: "boris@gmail.com", password: "password", full_name: "Boris")
-owner = User.create!(email: "amara@gmail.com", password: "password", full_name: "Amara")
+User.create!(email: "amara@gmail.com", password: "password", full_name: "Amara")
 User.create!(email: "chris@gmail.com", password: "password", full_name: "Chris")
 puts "** Users created. **"
 
@@ -43,7 +43,7 @@ space1 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: "089 324 32 64",
 )
-space1.user = owner
+space1.user = User.all.to_a.sample
 space1.save!
 
 
@@ -54,7 +54,7 @@ space2 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space2.user = owner
+space2.user = User.all.to_a.sample
 space2.save
 
 space3 = Space.new(
@@ -64,7 +64,7 @@ space3 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space3.user = owner
+space3.user = User.all.to_a.sample
 space3.save
 space4 = Space.new(
   name: "WerkBox³ e.V.", 
@@ -73,7 +73,7 @@ space4 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space4.user = owner
+space4.user = User.all.to_a.sample
 space4.save
 space5 = Space.new(
   name: "Nachbarschaftstreff am Walchenseeplatz", 
@@ -82,7 +82,7 @@ space5 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space5.user = owner
+space5.user = User.all.to_a.sample
 space5.save
 space6 = Space.new(
   name: "Haus der Eigenarbeit – HEi", 
@@ -91,7 +91,7 @@ space6 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space6.user = owner
+space6.user = User.all.to_a.sample
 space6.save
 space7 = Space.new(
   name: "Nachbarschaftstreff Karlingerstraße", 
@@ -100,7 +100,7 @@ space7 = Space.new(
   availability: GEN_AVAIL_MSG, 
   phone_number: Faker::PhoneNumber.cell_phone_in_e164,
 )
-space7.user = owner
+space7.user = User.all.to_a.sample
 space7.save
 puts "** Spaces created. **"
 
@@ -149,6 +149,7 @@ puts "** Space item types created. **"
 
 # Bookings
 puts "** Seeding bookings... **"
+user_list = User.all.to_a
 3.times do
   i_type = ItemType.all.sample
   booking = Booking.new(
@@ -157,18 +158,26 @@ puts "** Seeding bookings... **"
     comment: "Need help!",
     status: "confirmed",
   )
-  booking.user = User.all.sample
-  booking.space = Space.all.sample
+  booking.user = user_list.pop
+  booking.space = Space.all.to_a.find { |space| space.user != booking.user }
   booking.item_type = i_type
   booking.save
 end
 puts "** Bookings created. **"
-puts "=====[ Finished seeding database ]====="
 # TODO:
 # Reviews
 # puts "** Seeding reviews... **"
 # puts "** Reviews created. **"
 
 # Messages
-# puts "** Seeding messages... **"
-# puts "** Messages created. **"
+puts "** Seeding messages... **"
+Booking.all.each do |booking|
+  msg = Message.new(
+    content: "Thanks for making an appointment at #{booking.space.name}! We're looking forward to your visit!"
+  )
+  msg.booking = booking
+  msg.user = booking.space.user
+  msg.save
+end
+puts "** Messages created. **"
+puts "=====[ Finished seeding database ]====="

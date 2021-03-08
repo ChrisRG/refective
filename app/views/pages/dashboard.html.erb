@@ -54,21 +54,26 @@
     </div>
 
     <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="message-tab">
-      <%# <div class="mt-3 text-center">
-        <p>You haven't started messaging yet!</p>
-      </div> %>
+      <% if current_user.bookings.exists? %>
+        <%= render "shared/dashboard_chat" %>
+      <% else %>
+        <div class="mt-3 text-center">
+          <p>You haven't started messaging yet!</p>
+        </div>
+      <% end %>
 
-        <%# <% current_user.bookings.last.messages.each do |message| %>
-          <%# <div class="message-container" id="message-<%= message.id %>
-            <%# <i class="author">
+        <% current_user.bookings.last.messages.each do |message| %>
+          <% <div class="message-container" id="message-<%= message.id %>
+            <% <i class="author">
               <span><%= message.user.nickname %></span>
-              <%# <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              <% <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
             </i>
-            <p><%#= message.content %></p>
+            <p><%= message.content %></p>
           </div>
-        <%# end %>
-        <%#= render "shared/messages_show", message: @message  %> 
+        <% end %> 
+        <%= render "shared/messages_show", message: @message  %> 
     </div>
   <%= render "shared/chat_card" %>
+   
   </div>
 </div>

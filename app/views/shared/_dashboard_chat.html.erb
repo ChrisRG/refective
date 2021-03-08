@@ -1,0 +1,12 @@
+<div class="container mt-5 d-flex"> 
+  <div>
+    <% current_user.bookings.each do |booking| %>
+      <%= booking.name %>
+    <% end %>
+  </div>
+  <div>
+    <% current_user.messages.each do |message| %>
+      <%= render "shared/chat_card", message: message %>
+    <% end %>
+  </div>
+</div>

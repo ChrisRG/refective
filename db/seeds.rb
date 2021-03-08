@@ -5,12 +5,12 @@ puts "=====[ Seeding database ]====="
 puts "** Deleting previous records... **"
 
 Message.delete_all
+Review.delete_all
 Booking.delete_all
 SpaceItemType.delete_all
 Space.delete_all
 ItemType.delete_all
 User.delete_all
-Review.delete_all
 
 puts "** Records deleted. **"
 
@@ -164,10 +164,18 @@ user_list = User.all.to_a
   booking.save
 end
 puts "** Bookings created. **"
-# TODO:
 # Reviews
-# puts "** Seeding reviews... **"
-# puts "** Reviews created. **"
+puts "** Seeding reviews... **"
+Booking.all.each do |booking|
+  review = Review.new(
+    rating: rand(2..5),
+    content: Faker::Restaurant.review
+  )
+  review.booking = booking
+  review.user = booking.user
+  review.save
+end
+puts "** Reviews created. **"
 
 # Messages
 puts "** Seeding messages... **"

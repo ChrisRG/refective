@@ -1,9 +1,10 @@
 <div class="card-product dashboard">
   <% if space.photo.attached? %>
-      <%= cl_image_tag space.photo.key %>
-    <% else %>
-      <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
-    <% end %>
+    <%= cl_image_tag space.photo.key %>
+  <% else %>
+    <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
+  <% end %>
+
   <div class="card-product-infos dashboard">
     <div class="card-product-title">
       <h2><%= space.name %></h2>
@@ -15,7 +16,7 @@
       <div class="card-icons">
 
         <% if policy(space).update? %>
-          <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-2"} do %>
+          <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-space-#{space.id}"} do %>
                 <i class="fa fa-pencil"></i>
           <% end %>
         <% end %>
@@ -33,7 +34,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-space-<%= space.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,7 +46,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for space, remote: true do |f| %>
+        <%= simple_form_for space do |f| %>
           <%= f.input :name, placeholder: space.name %>
           <%= f.input :address, placeholder: space.address %>
           <%= f.input :description, placeholder: space.description %>

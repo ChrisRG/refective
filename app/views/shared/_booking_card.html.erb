@@ -26,7 +26,7 @@
     <div class="card-icons">
 
       <% if policy(booking).update? %>
-        <%= link_to booking_path(booking), data: {toggle: "modal", target: "#modal"} do %>
+        <%= link_to booking_path(booking), data: {toggle: "modal", target: "#modal-booking-#{booking.id}"} do %>
               <i class="fa fa-pencil"></i>
         <% end %>
       <% end %>
@@ -43,7 +43,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-booking-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">

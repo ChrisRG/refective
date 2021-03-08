@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_space, only: :create
+  before_action :set_booking, only: [:destroy, :update]
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.space = @space
+    authorize @booking
+    @booking.space = Space.find(params[:space_id])
     @booking.user = current_user
     @booking.item_type = ItemType.last
     if @booking.save
@@ -14,21 +15,20 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "Booking deleted!"
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to dashboard_path, notice: "Booking updated!"
   end
 
   private
 
-  def set_space
-    @space = Space.find(params[:space_id])
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def booking_params

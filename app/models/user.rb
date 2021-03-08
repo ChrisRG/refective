@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :spaces
+  has_many :messages, through: :bookings
 end

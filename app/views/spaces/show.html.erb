@@ -1,14 +1,23 @@
 <div class="container" style="margin-top: 5em">
   <%= render "shared/space_banner" %>
-  <div class="info-container w-50">
-    <%= render "shared/space_info" %>
-    <%= render "shared/space_services"  %>
-    <%= render "shared/space_availability" %>
+
+  <div class="d-flex">
+    <div class="info-container w-75">
+      <%= render "shared/space_info" %>
+      <%= render "shared/space_services"  %>
+      <%= render "shared/space_availability" %>
+      <%#= render "shared/space_reviews"  %>
+      <h4>Ratings</h4>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis rerum nostrum, debitis? Harum rerum, unde aliquid adipisci animi neque beatae amet voluptatibus soluta nesciunt alias tempore non facilis, nemo, maiores!
+      Officia aut id officiis tempore dolorum deserunt.</p>
+    </div>
+    <div class="booking-form border w-25 mt-3 p-3">
+      <%= render "shared/space_booking" %>
+    </div>
   </div>
-  <%#= render "shared/space_reviews"  %>
-  <div class="w-50">
-    <%= render "shared/space_booking" %>
+
+  <div class="w-100">
     <%= render "shared/space_map"  %>
   </div>
-  
+
 </div>

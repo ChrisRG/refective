@@ -12,7 +12,7 @@
       <p><i class="fa fa-calendar"></i>
         <%= booking.date.strftime("%a %d %b") %>
         <i class="fa fa-clock-o "></i>
-        <%= booking.date.strftime("%I:%M%p") %>
+        <%= booking.date.strftime("%H:%M") %>
       </p>
       <p><i class="fa fa-wrench"></i> 
         [<%= booking.item_type.name %>] 

@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   def dashboard
     @bookings = current_user.bookings
     @spaces = current_user.spaces
+    @message = Message.new
   end
 end

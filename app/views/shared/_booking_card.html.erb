@@ -14,11 +14,11 @@
         <i class="fa fa-clock-o "></i>
         <%= booking.date.strftime("%H:%M") %>
       </p>
-      <p><i class="fa fa-wrench"></i> 
-        [<%= booking.item_type.name %>] 
+      <p><i class="fa fa-wrench"></i>
+        [<%= booking.item_type.name %>]
         <%= booking.item_description %>
       </p>
-      <p><i class="fa fa-info-circle"></i> 
+      <p><i class="fa fa-info-circle"></i>
         <%= booking.comment %>
       </p>
     </div>
@@ -59,6 +59,7 @@
           <%= f.association :item_type, placeholder: booking.item_type %>
           <%= f.input :item_description, placeholder: booking.item_description %>
           <%= f.input :comment, placeholder: booking.comment %>
+          <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
 
           <%= f.submit "Save changes", class: "btn btn-success" %>
         <% end %>

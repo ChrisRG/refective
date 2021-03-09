@@ -7,7 +7,7 @@
   align-items: center;
   margin-bottom: 10px;
   border-radius: 15px;
-  width: 100%;
+  width: 60%;
   color: $banner-dark;
 }
 
@@ -64,4 +64,11 @@
 
 .fa {
   margin: 0 3px;
+}
+
+.card-product-dashboard .truncate {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

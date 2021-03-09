@@ -30,9 +30,11 @@ import { initFlatpickr } from "../plugins/flatpickr";
 import { initMapbox } from "../plugins/init_mapbox";
 import { initSelect2 } from "../components/init_select2";
 import { initSpacesFilter } from "../components/space_filter";
+import { initChatroomCable } from "../channels/booking_channel";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
+  initChatroomCable();
   triggerTabs();
   initFlatpickr();
   initMapbox();

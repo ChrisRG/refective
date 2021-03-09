@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :update]
   
   def show
+    @message = Message.new
   end
 
   def create

@@ -31,16 +31,34 @@
     <hr>
   </div>
 
-  <div id="message-container" class="w-75">
+  <div id="chatbox" class="w-75">
     <h4>Messages</h4>
-    <p>Start chatting with <%= @booking.space.name %> now!</p>
-
+    <% unless @booking.messages.length > 0 %>
+      <h5>Start chatting with <%= @booking.space.name %> now!</h5>
+    <% end %>
+    <div id="messages">
+      <% @booking.messages.each do |message| %>
+        <div class="message-container" id="message-<%= message.id %>">
+          <i class="author">
+          <span><%= message.user.full_name %></span>
+          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </i>
+          <p><%= message.content %></p>
+        </div>
+      <% end %>
+    </div>
+    <div id="input-container">
+      <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@booking.space.name}" %>
+        <%= f.submit %>
+      <% end %>
+    </div>
     <hr>
   </div>
 
 
   <div class="w-85">
-    <%= render "shared/space_map"  %>
+    <%# <%= render "shared/space_map"  %1> %>
   </div>
 
 </div>

@@ -4,11 +4,19 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.booking = @booking
+    authorize @message
     @message.save
-    respond_to do |format|
-      format.js
+    BookingChannel.broadcast_to(
+      @booking,
+      render_to_string(partial: "message", locals: { message: @message })
+    )
+    if @message.save
+      redirect_to booking_path(@booking, anchor: "message-#{@message.id}")
+    else
+      render "bookings/show"
     end
   end
+
   private
 
   def message_params

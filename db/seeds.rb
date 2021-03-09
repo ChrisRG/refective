@@ -16,9 +16,9 @@ puts "** Records deleted. **"
 
 # Users
 puts "** Seeding users... **"
-User.create!(email: "boris@gmail.com", password: "password", full_name: "Boris")
-User.create!(email: "amara@gmail.com", password: "password", full_name: "Amara")
-User.create!(email: "chris@gmail.com", password: "password", full_name: "Chris")
+user_boris = User.create!(email: "boris@gmail.com", password: "password", full_name: "Boris")
+user_amara = User.create!(email: "amara@gmail.com", password: "password", full_name: "Amara")
+user_chris = User.create!(email: "chris@gmail.com", password: "password", full_name: "Chris")
 puts "** Users created. **"
 
 # Item Types
@@ -105,7 +105,7 @@ space7.save
 puts "** Spaces created. **"
 
 
-puts "** Attaching images... **"
+puts "** Attaching space images... **"
 file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943858/refective/space1_zuksfp.jpg")
 space1.photo.attach(io: file, filename: "#{space1.name}.jpg", content_type: "image/jpg")
 space1.save!
@@ -134,7 +134,21 @@ space6.save!
 file = URI.open("https://res.cloudinary.com/chrisrg/image/upload/v1614943857/refective/space7_obhfea.jpg")
 space7.photo.attach(io: file, filename: "#{space7.name}.jpg", content_type: "image/jpg")
 space7.save!
-puts "** Images attached. **"
+puts "** Space images attached. **"
+
+puts "** Attaching user images..."
+file = URI.open("https://kitt.lewagon.com/placeholder/users/kibex92")
+user_boris.photo.attach(io: file, filename: "#{space6.name}.jpg", content_type: "image/jpg")
+user_boris.save!
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1609758298/wmda5l7ouqbaektxtukj.jpg")
+user_amara.photo.attach(io: file, filename: "#{space7.name}.jpg", content_type: "image/jpg")
+user_amara.save!
+
+file = URI.open("https://kitt.lewagon.com/placeholder/users/chrisrg")
+user_chris.photo.attach(io: file, filename: "#{space7.name}.jpg", content_type: "image/jpg")
+user_chris.save!
+puts "** User images attached."
 
 # Space Item Types
 puts "** Seeding space item types... **"

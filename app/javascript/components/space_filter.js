@@ -1,6 +1,6 @@
 import $, { map } from "jquery";
 import "select2";
-import { initMapbox } from "../plugins/init_mapbox";
+import { buildMarkers, map as mapBoxMap } from "../plugins/init_mapbox";
 
 const initSelect2 = () => {
   const filter = $("#select-item-type-id");
@@ -11,6 +11,7 @@ const initSelect2 = () => {
 const clearFilter = () => {
   document.querySelectorAll(".space-partial").forEach((space) => {
     space.classList.remove("d-none");
+    space.classList.add("currently-displayed");
   });
 };
 
@@ -18,29 +19,30 @@ const updateMapMarkers = () => {
   const displayedSpaces = document.querySelectorAll(".currently-displayed");
   const filteredMarkers = [];
   displayedSpaces.forEach((space) => {
+    console.log(space);
     const parsedCoords = JSON.parse(space.dataset.coordinates);
     filteredMarkers.push(parsedCoords);
   });
-  const mapElement = document.getElementById("map");
-  mapElement.dataset.markers = JSON.stringify(filteredMarkers);
-  initMapbox();
+  buildMarkers(mapBoxMap, filteredMarkers);
 };
 
 const filterSpaces = (id) => {
   if (!id) {
-    return clearFilter();
+    clearFilter();
+    updateMapMarkers();
+    return;
   }
   id = parseInt(id, 10);
   document.querySelectorAll(".space-partial").forEach((space) => {
     const itemTypeIds = JSON.parse(space.dataset.itemTypeIds);
     if (itemTypeIds.includes(id)) {
-      //mapElement.addLayer(marker);
       space.classList.remove("d-none");
       space.classList.add("currently-displayed");
+      console.log(`hiding ${id}`);
     } else {
-      //mapElement.removeLayer(marker);
       space.classList.add("d-none");
       space.classList.remove("currently-displayed");
+      console.log(`showing ${id}`);
     }
   });
   updateMapMarkers();

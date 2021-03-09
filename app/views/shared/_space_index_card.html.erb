@@ -12,12 +12,23 @@
     </div>
     <div>
       <p class="truncate"><%= space.description %></p>
-      <p><i class="fa fa-wrench" aria-hidden="true"></i>
+      <p><i class="fas fa-toolbox"></i>
       <%= space.space_item_types.first.item_type.name %></p>
     </div>
     <div>
-      <p><i class="fa fa-star-o"></i><%= rand(3..5).round %></p>
+      <p>
+        <% rand_rating = rand(3..5).round %>
+        <% rand_rating.times do %>
+          <i class="fa fa-wrench"></i>
+        <% end %>
+
+        <% opaque = 5 - rand_rating %>
+        <% opaque.times do %>
+          <i class="fa fa-wrench" aria-hidden="true" style="opacity: 0.2"></i>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
+
 

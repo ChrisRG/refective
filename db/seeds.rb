@@ -153,11 +153,15 @@ puts "** User images attached."
 # Space Item Types
 puts "** Seeding space item types... **"
 spaces_list = Space.all.to_a
-7.times do 
-  space_item = SpaceItemType.new
-  space_item.item_type = ItemType.all.to_a.sample
-  space_item.space = spaces_list.pop
-  space_item.save
+Space.all.each do |space|
+  rand_num = rand(2..5)
+  item_types = ItemType.all.to_a.shuffle
+  rand_num.times do 
+    space_item = SpaceItemType.new
+    space_item.item_type = item_types.pop
+    space_item.space = space
+    space_item.save
+  end
 end
 puts "** Space item types created. **"
 

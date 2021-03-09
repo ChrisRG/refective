@@ -1,1 +1,46 @@
+<div class="container" style="margin-top: 5em">
+  <div>
+    <%= link_to "< Bookings", dashboard_path %>
+  <div>
+    <h1><%= link_to @booking.space.name, space_path(@booking.space) %></h1>
+  </div>
  
+
+  <div class="w-75">
+    <div class="info-container p-3" style="border-radius: 12px; background-color: lightgrey">
+      <h5>Your visit:</h5>
+      <h5><i class="fa fa-calendar"></i>
+        <%= @booking.date.strftime("%a %d %b") %>
+        <i class="fa fa-clock-o "></i>
+        <%= @booking.date.strftime("%H:%M") %>
+      </h5>
+      <h5>Your info:</h5>
+      <div>
+        <h5><i class="fa fa-wrench"></i> 
+          <%= @booking.item_description %>
+        </h5>
+        <h5><i class="fa fa-info-circle"></i> 
+          <%= @booking.comment %>
+        </h5>
+        <div>
+        <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pocket-lint.com%2Fr%2Fs%2F970x%2Fassets%2Fimages%2F153836-headphones-news-bose-launches-its-gaming-headset-quietcomfort-35-ii-gaming-image1-7ayeqdlt8t.jpg&f=1&nofb=1", class: "w-25" %>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+  </div>
+
+  <div id="message-container" class="w-75">
+    <h4>Messages</h4>
+    <p>Start chatting with <%= @booking.space.name %> now!</p>
+
+    <hr>
+  </div>
+
+
+  <div class="w-85">
+    <%= render "shared/space_map"  %>
+  </div>
+
+</div>

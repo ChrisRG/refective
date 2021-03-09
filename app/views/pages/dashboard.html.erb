@@ -17,7 +17,7 @@
       <div class="cards">
         <% if current_user.bookings.present? %>
         <% @bookings.each do |booking| %>
-          <%= link_to space_path(booking.space), class: "card-links" do %>
+          <%= link_to booking_path(booking), class: "card-links" do %>
             <%= render "shared/booking_card", booking: booking %>
           <% end %>
         <% end %>

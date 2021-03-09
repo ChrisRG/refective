@@ -2,6 +2,7 @@
     <%= form_with url: spaces_path, method: :get, html: { autocomplete: "off" } do %>
       <%= select_tag("select-item-type-id", options_from_collection_for_select(ItemType.order(:name), "id", "name"), include_blank: "All", class: "select2") %>
     <% end %>
+
   <div class="d-flex justify-content-center">
 
     <div class="cards card-index">
@@ -14,7 +15,7 @@
     <div id="map" class="map-index"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      >
+      > 
     </div>
   </div>
 </div>

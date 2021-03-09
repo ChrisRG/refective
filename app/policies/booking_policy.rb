@@ -25,7 +25,7 @@ class BookingPolicy < ApplicationPolicy
 
   def user_is_customer_owner_or_admin?
     user == record.user ||
-      user == record.space.owner ||
+      user == record.space.user ||
       user.admin
   end
 

@@ -1,11 +1,11 @@
-<div class="card-product">
+<div class="card-product-dashboard">
   <% if booking.space.photo.attached? %>
       <%= cl_image_tag booking.space.photo.key %>
     <% else %>
       <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
     <% end %>
-  <div class="card-product-infos">
-    <div class="card-product-title">
+  <div class="card-product-infos-dashboard">
+    <div class="card-product-title-dashboard">
       <h2><%= booking.space.name %></h2>
     </div>
     <div>
@@ -23,7 +23,7 @@
       </p>
     </div>
 
-    <div class="card-icons">
+    <div class="card-icons-dashboard">
 
       <% if policy(booking).update? %>
         <%= link_to booking_path(booking), data: {toggle: "modal", target: "#modal-booking-#{booking.id}"} do %>

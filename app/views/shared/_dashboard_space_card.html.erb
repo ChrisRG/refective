@@ -1,19 +1,19 @@
-<div class="card-product dashboard">
+<div class="card-product-dashboard">
   <% if space.photo.attached? %>
     <%= cl_image_tag space.photo.key %>
   <% else %>
     <img src="https://res.cloudinary.com/chrisrg/image/upload/c_scale,w_702/v1614695131/refective/repair-shop1.jpg" />
   <% end %>
 
-  <div class="card-product-infos dashboard">
-    <div class="card-product-title">
+  <div class="card-product-infos-dashboard">
+    <div class="card-product-title-dashboard">
       <h2><%= space.name %></h2>
     </div>
     <div>
       <p><i class="fa fa-star-o"></i>5.0</p>
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
-      <div class="card-icons">
+      <div class="card-icons-dashboard">
 
         <% if policy(space).update? %>
           <%= link_to space_path(space), data: { toggle: "modal", target: "#modal-space-#{space.id}"} do %>

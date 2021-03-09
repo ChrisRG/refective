@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.space = Space.find(params[:space_id])
     @booking.user = current_user
-    @booking.item_type = ItemType.last
+    @booking.item_type = @booking.item_type
     if @booking.save
       redirect_to dashboard_path, notice: "Booking created!"
     else

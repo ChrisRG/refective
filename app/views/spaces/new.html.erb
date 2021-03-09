@@ -4,14 +4,6 @@
     <h4>Please fill in some information about your space!</h4>
   </div>
   <div style="width: 65%">
-    <%= simple_form_for @space do |f| %>
-      <%= f.input :name, label: "Space name" %>
-      <%= f.input :address %>
-      <%= f.input :description %>
-      <%= f.input :availability, label: "Opening times" %>
-      <%= f.input :phone_number %>
-      <%= f.input :photo, as: :file, label: "Add a photo!" %>
-      <%= f.button :submit, class: "btn btn-outline-success" %>
-    <% end %>
+    <%= render "shared/space_new", space: @space %>
   </div>
 </div>

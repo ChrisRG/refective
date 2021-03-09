@@ -1,3 +1,4 @@
+
 <div class="card-product card-index space-partial currently-displayed" data-item-type-ids="<%= space.item_types.pluck(:id).to_json %>" data-coordinates="<%= {"lat": space.latitude, "lng": space.longitude}.to_json %>" >
   <div>
     <% if space.photo.attached? %>
@@ -13,7 +14,12 @@
     <div>
       <p class="truncate"><%= space.description %></p>
       <p><i class="fas fa-toolbox"></i>
-      <%= space.space_item_types.first.item_type.name %></p>
+        <% space_items = [] %>
+        <% space.space_item_types.each do |item| %>
+          <% space_items << item.item_type.name %>
+        <% end %>
+        <%= space_items.join(", ") %>
+      </p>
     </div>
     <div>
       <p>

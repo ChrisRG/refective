@@ -20,6 +20,7 @@ class SpacesController < ApplicationController
 
   def new
     @space = Space.new
+    @item_types = ItemType.all
     authorize @space
   end
 
@@ -27,11 +28,14 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
     authorize @space
     @space.user = current_user
-    # TODO: Add Item Type field to form: f.association :item_Type
-    space_item = SpaceItemType.new
-    space_item.item_type = ItemType.last
-    space_item.space = @space
-    space_item.save
+    params[:space][:item_type_ids].each do |item|
+      unless item.empty?
+        space_item = SpaceItemType.new
+        space_item.item_type = ItemType.find(item)
+        space_item.space = @space
+        space_item.save
+      end
+    end
     if @space.save
       redirect_to space_path(@space)
     else

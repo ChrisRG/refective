@@ -45,7 +45,7 @@ class SpacesController < ApplicationController
 
   def update
     if @space.update(space_params)
-      redirect_to dashboard_path, notice: "Space saved"
+      redirect_to dashboard_path(tab: "space"), notice: "Space saved"
     else
       redirect_to dashboard_path, alert: "There was a problem modifying your space."
     end

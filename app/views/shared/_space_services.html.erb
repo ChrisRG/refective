@@ -2,5 +2,10 @@
   <h5>Specialties:</h5>
   <p>
     <i class="fa fa-wrench" aria-hidden="true"></i>
-    <%= @space.space_item_types.first.item_type.name %></p>
+        <% space_items = [] %>
+        <% @space.space_item_types.each do |item| %>
+          <% space_items << item.item_type.name %>
+        <% end %>
+        <%= space_items.join(", ") %>
+    </p>
 </div>

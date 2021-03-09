@@ -1,4 +1,4 @@
-<div>
+<div class="border mt-3 p-5">
   <h4>Book a visit!</h4>
   <% if policy(Booking).create? %>
     <%= simple_form_for([@space, @booking]) do |f| %>

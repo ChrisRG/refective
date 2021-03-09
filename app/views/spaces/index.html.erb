@@ -1,5 +1,9 @@
 <div class="container" style="margin-top: 5em">
+    <%= form_with url: spaces_path, method: :get do %>
+      <%= select_tag("select-item-type-id", options_from_collection_for_select(ItemType.order(:name), "id", "name"), include_blank: "All") %>
+    <% end %>
   <div class="d-flex justify-content-center">
+
     <div class="cards card-index">
       <% @spaces.each do |space| %>
         <%= link_to space_path(space), class: "card-links" do %>

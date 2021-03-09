@@ -28,7 +28,8 @@ import "bootstrap";
 import { triggerTabs } from "../components/tabs";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initMapbox } from "../plugins/init_mapbox";
-import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from "../components/init_select2";
+import { initSpacesFilter } from "../components/space_filter";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -36,4 +37,5 @@ document.addEventListener("turbolinks:load", () => {
   initFlatpickr();
   initMapbox();
   initSelect2();
+  initSpacesFilter();
 });

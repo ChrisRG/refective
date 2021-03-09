@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :destroy, :update]
-   
+
   def index
     @spaces = policy_scope(Space)
 
@@ -11,8 +11,9 @@ class SpacesController < ApplicationController
       }
     end
   end
-  
+
   def show
+    @reviews = @space.reviews
     @booking = Booking.new
     @markers = [{ lat: @space.latitude, lng: @space.longitude}]
   end
@@ -60,5 +61,5 @@ class SpacesController < ApplicationController
   def set_space
     @space = Space.find(params[:id])
     authorize @space
-  end 
+  end
 end

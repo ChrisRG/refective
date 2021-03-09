@@ -1,0 +1,23 @@
+.chat-box {
+  padding: 15px 10px;
+}
+
+.message-box {
+  height: 50vh;
+  overflow: scroll;
+}
+
+
+.input-box {
+  margin-top: 5px;
+}
+
+.message-content {
+  flex-grow: 0;
+  width: 90%;
+  border: darkgrey solid 1px;
+  margin-left: 12px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 12px;
+}

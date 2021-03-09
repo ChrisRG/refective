@@ -1,0 +1,30 @@
+<div class="chat-box">
+  <div id="messages" class="message-box">
+    <% unless @booking.messages.length > 0 %>
+      <h5>Start chatting with <%= @booking.space.name %> now!</h5>
+    <% end %>
+    <% @booking.messages.each do |message| %>
+      <div class="message-container d-flex" id="message-<%= message.id %>">
+        <div class="user">
+          <% if message.user.photo.attached? %>
+            <%= cl_image_tag message.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/chrisrg/image/upload/v1614771986/refective/user-circle-regular.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <p style="margin-bottom: 0"><%= message.user.full_name %></p>
+          <p style="margin-top: 0"><small><%= message.created_at.strftime("%l:%M%p") %></small></p>
+        </div>
+        <div class="message-content">
+          <p><%= message.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="input-container" class="input-box">
+    <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{@booking.space.name}" %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

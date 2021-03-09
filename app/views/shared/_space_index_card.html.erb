@@ -1,4 +1,4 @@
-<div class="card-product card-index space-partial" data-item-type-ids="<%= space.item_types.pluck(:id).to_json %>">
+<div class="card-product card-index space-partial" data-item-type-ids="<%= space.item_types.pluck(:id).to_json %>" data-coordinates="<%= {"lat": space.latitude, "lng": space.longitude}.to_json %>" >
   <div>
     <% if space.photo.attached? %>
       <%= cl_image_tag space.photo.key %>

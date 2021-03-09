@@ -2,7 +2,7 @@
   <h4>Book a visit!</h4>
   <% if policy(Booking).create? %>
     <%= simple_form_for([@space, @booking]) do |f| %>
-      <%= f.association :space, collection: @space.item_types.all %>
+      <%= f.association :item_type, collection: @space.item_types.all %>
       <%= f.input :item_description %>
       <%= f.input :comment %>
       <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>

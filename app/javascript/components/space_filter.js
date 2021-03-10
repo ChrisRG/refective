@@ -4,7 +4,7 @@ import { buildMarkers, map as mapBoxMap } from "../plugins/init_mapbox";
 
 const initSelect2 = () => {
   const filter = $("#select-item-type-id");
-  filter.select2();
+  // filter.select2();
   return filter;
 };
 
@@ -38,11 +38,9 @@ const filterSpaces = (id) => {
     if (itemTypeIds.includes(id)) {
       space.classList.remove("d-none");
       space.classList.add("currently-displayed");
-      console.log(`hiding ${id}`);
     } else {
       space.classList.add("d-none");
       space.classList.remove("currently-displayed");
-      console.log(`showing ${id}`);
     }
   });
   updateMapMarkers();
@@ -50,7 +48,6 @@ const filterSpaces = (id) => {
 
 const initSpacesFilter = () => {
   const filter = initSelect2();
-  // filter.select2({ width: "45%" });
   filter.on("select2:select", (e) => {
     const id = e.currentTarget.value;
     filterSpaces(id);

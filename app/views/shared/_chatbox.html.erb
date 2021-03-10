@@ -11,7 +11,7 @@
     <% end %>
   </div>
 
-  <div id="input-container" class="input-box">
+  <div id="input-container" class="input-box mt-3">
     <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
       <div class="d-flex align-items-start mb-0">
         <%= f.input :content, label: false, placeholder: "Send a message...", as: :string %>

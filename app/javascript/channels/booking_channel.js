@@ -1,4 +1,5 @@
 import consumer from "./consumer";
+import { scrollToChatBottom } from "../components/chat_scroll";
 
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
@@ -7,6 +8,7 @@ const initChatroomCable = () => {
     consumer.subscriptions.create({ channel: "BookingChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
+        scrollToChatBottom();
       },
     });
   }

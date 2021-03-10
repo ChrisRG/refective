@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   
   def show
     @message = Message.new
+    @markers = [{ lat: @booking.space.latitude, lng: @booking.space.longitude}]
   end
 
   def create

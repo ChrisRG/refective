@@ -6,7 +6,7 @@
       <%= f.input :item_description, label: "What needs repairing?" %>
       <%= f.input :comment, label: "Leave a comment" %>
       <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
-      <label class="btn btn-primary" id="photo-submit">
+      <label class="btn btn-outline-success" id="photo-submit">
         Add a photo!
         <span style="display:none;">
           <%= f.input :photo, as: :file %>

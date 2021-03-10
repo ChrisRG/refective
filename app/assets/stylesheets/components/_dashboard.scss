@@ -59,7 +59,21 @@
 }
 
 .fa-trash {
-  color: #dc143c;
+  color: $banner-dark;
+  opacity: 0.7;
+  &:hover {
+    color: #dc143c;
+    opacity: 1;
+  }
+}
+
+.fa-pencil {
+  color: $banner-dark;
+  opacity: 0.7;
+  &:hover {
+    color: $re-green;
+    opacity: 1;
+  }
 }
 
 .fa {

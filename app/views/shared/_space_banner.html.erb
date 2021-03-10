@@ -1,13 +1,9 @@
 <div class="space-banner">
-  <h1><%= @space.name %></h1>
-  <div class="d-flex">
-    <%# if !@space.bookings.reviews.rating.nil? %>
-      <p><%#= @space.bookings.reviews.rating %></p>
-      <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= @space.address %></p>
-    <%# else %>
-     <p><%#= @space.address %></p>
-    <%# end %> 
-    <p>
+  <div> 
+    <h1><%= @space.name %></h1>
+    <div class="d-flex">
+        <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= @space.address %></p>
+    </div>
   </div>
   <div class="space-photo" style="border-radius: 15px w-75">
     <% if @space.photo.attached? %>

@@ -10,7 +10,26 @@
       <h2><%= space.name %></h2>
     </div>
     <div>
-      <p><i class="fa fa-star-o"></i>5.0</p>
+      <p>
+        <% unless space.reviews.count < 1 %>
+          <% sum = 0 %>
+          <% space.reviews.each do |review| %>
+            <% sum += review.rating %>
+          <% end %>
+          <% sum = sum / space.reviews.count %>
+          <% sum.times do %>
+            <i class="fa fa-wrench"></i>
+          <% end %>
+
+          <% opaque = 5 - sum %>
+          <% opaque.times do %>
+            <i class="fa fa-wrench" aria-hidden="true" style="opacity: 0.2"></i>
+          <% end %>
+          (<%= space.reviews.length %> <%=  "review".pluralize(space.reviews.count) %>)
+        <% else %>
+            No reviews yet!
+        <% end %>
+      </p>
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
       <div class="card-icons-dashboard">

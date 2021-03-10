@@ -1,6 +1,6 @@
 <div class="container index-container" style="margin-top: 5em; width: 75%">
     <%= form_with url: spaces_path, method: :get, html: { autocomplete: "off" } do %>
-      <%= select_tag("select-item-type-id", options_from_collection_for_select(ItemType.order(:name), "id", "name"), include_blank: "All", class: "select2", style: "width: 532px") %>
+      <%= select_tag("select-item-type-id", options_from_collection_for_select(ItemType.order(:name), "id", "name"), include_blank: "All", class: "select2", style: "width: 37.8%") %>
     <% end %>
 
   <div class="d-flex justify-content-center">

@@ -1,11 +1,12 @@
-<div class="border mt-3 p-5">
+<div class="border mt-3 p-5" style="border-radius: 12px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
   <h4>Book a visit!</h4>
   <% if policy(Booking).create? %>
     <%= simple_form_for([@space, @booking]) do |f| %>
-      <%= f.association :item_type, collection: @space.item_types.all %>
-      <%= f.input :item_description %>
-      <%= f.input :comment %>
+      <%= f.association :item_type, collection: @space.item_types.all, label:"Select a repair category" %>
+      <%= f.input :item_description, label: "What needs repairing?" %>
+      <%= f.input :comment, label: "Leave a comment" %>
       <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
+      <%= f.input :photo, as: :file, label: "Add a photo!" %>
       <%= f.submit class: "btn btn-success" %>
     <% end %>
   <% end %>

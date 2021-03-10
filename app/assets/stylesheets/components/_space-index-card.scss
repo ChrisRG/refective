@@ -1,12 +1,13 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 140px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border-radius: 12px;
   width: 100%;
   color: $banner-dark;
 }
@@ -14,6 +15,13 @@
 .card-product a:hover {
   text-decoration: none;
 }
+
+.card-product:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  background: rgba(0, 0, 0, 0.0);
+}
+
 .card-product img {
   height: 100%;
   width: 250px;

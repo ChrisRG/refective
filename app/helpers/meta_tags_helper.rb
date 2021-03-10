@@ -1,4 +1,4 @@
-# In any view, if a content_for(:meta_key) was defined, it should override DEFAULT_META's value. 
+# In any view, if a content_for(:meta_key) was defined, it should override DEFAULT_META's value.
 module MetaTagsHelper
   def meta_title
     content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]

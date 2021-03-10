@@ -1,17 +1,20 @@
 <div class="container " style="margin-top: 5em">
   <div class="d-flex">
     <%= render "shared/space_banner" %>
-      <div class="booking-form">
-        <%= render "shared/space_booking" %>
-      </div>
+      
   </div>
 
   <div class="info-and-form d-flex">
-    <div class="info-container">
-      <%= render "shared/space_info" %>
-      <%= render "shared/space_services"  %>
-      <%= render "shared/space_availability" %>
-      <%= render "shared/space_reviews"  %>
+    <div class="d-flex w-100">
+      <div class="info-container">
+        <%= render "shared/space_info" %>
+        <%= render "shared/space_services"  %>
+        <%= render "shared/space_availability" %>
+        <%= render "shared/space_reviews"  %>
+      </div>
+        <div class="booking-form mb-5">
+          <%= render "shared/space_booking" %>
+        </div>
     </div>
   </div>
 

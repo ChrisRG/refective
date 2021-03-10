@@ -13,6 +13,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item_type = @booking.item_type
     if @booking.save
+      msg = Message.new(content: @booking.comment)
+      msg.booking = @booking
+      msg.user = current_user
+      msg.save
       redirect_to dashboard_path, notice: "Booking created!"
     else
       render "spaces/show"

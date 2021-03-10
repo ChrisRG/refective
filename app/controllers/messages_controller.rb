@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
       render_to_string(partial: "message", locals: { message: @message })
     )
     if @message.save
-      redirect_to booking_path(@booking, anchor: "chatbox")
+      # redirect_to booking_path(@booking, anchor: "chatbox")
     else
       render "bookings/show"
     end

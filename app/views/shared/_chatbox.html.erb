@@ -3,9 +3,6 @@
     <p class="text-center bold">Chat with <%= @booking.space.name %></p>
   </div>
   <div id="messages" class="message-box" data-chatroom-id="<%= @booking.id %>">
-    <% unless @booking.messages.length > 0 %>
-      <h5>Start chatting with <%= @booking.space.name %> now!</h5>
-    <% end %>
     <% @booking.messages.each do |message| %>
       <%= render 'messages/message', message: message, booking: @booking %>
     <% end %>

@@ -1,17 +1,22 @@
-<div class="chat-box">
+<div class="chat-box"> 
+  <div class="message-header">
+    <p class="text-center bold">Chat with <%= @booking.space.name %></p>
+  </div>
   <div id="messages" class="message-box" data-chatroom-id="<%= @booking.id %>">
     <% unless @booking.messages.length > 0 %>
       <h5>Start chatting with <%= @booking.space.name %> now!</h5>
     <% end %>
     <% @booking.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+      <%= render 'messages/message', message: message, booking: @booking %>
     <% end %>
   </div>
 
   <div id="input-container" class="input-box">
     <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message #{@booking.space.name}" %>
-      <%= f.submit %>
+      <div class="d-flex align-items-start mb-0">
+        <%= f.input :content, label: false, placeholder: "Send a message...", as: :string %>
+        <%= f.button :submit, "Send", class: "btn btn-success" %>
+      </div>
     <% end %>
   </div>
 </div>

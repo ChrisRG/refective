@@ -1,14 +1,33 @@
-<div class="message-container d-flex" id="message-<%= message.id %>">
-  <div class="user">
+<% msg_is_booking_owner = true if @booking.user == message.user %>
+
+<div class="message-container d-flex my-3 <%= msg_is_booking_owner ? 'owner' : '' %>" id="message-<%= message.id %>">
+
+  <div class="user text-center" style="width: 6em">
     <% if message.user.photo.attached? %>
       <%= cl_image_tag message.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% else %>
       <%= image_tag "https://res.cloudinary.com/chrisrg/image/upload/v1614771986/refective/user-circle-regular.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% end %>
-    <p style="margin-bottom: 0"><%= message.user.full_name %></p>
-    <p style="margin-top: 0"><small><%= message.created_at.strftime("%l:%M%p") %></small></p>
   </div>
-  <div class="message-content">
-    <p><%= message.content %></p>
+
+  <div class="message-bubble <%= msg_is_booking_owner ? 'owner' : '' %>">
+
+    <div class="message-info">
+      <div class="message-info-name">
+        <% if msg_is_booking_owner %>
+          You
+        <% else %>
+          <%= message.user.full_name %>
+        <% end %>
+      </div>
+      <div class="time mx-3">
+        <small><%= message.created_at.strftime("%l:%M%p") %></small>
+      </div>
+    </div>
+
+    <div class="message-content">
+      <%= message.content %>
+    </div>
   </div>
 </div>
+

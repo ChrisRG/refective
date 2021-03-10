@@ -1,7 +1,31 @@
-.info-container {
+.space-photo {
+  border-radius: 15px;
+  width: 100%;
+  padding: 15px;
+}
+
+.space-photo img {
+  width: 65%;
+}
+
+.space-info-container {
   width: 60%;
 }
 
 .booking-form {
   width: 40%;
+}
+
+.space-show-map {
+  width: 100;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 7em;
+}
+
+.space-show-map .map-show {
+  margin-top: 2em;
+  width: 95%;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 15px;
 }

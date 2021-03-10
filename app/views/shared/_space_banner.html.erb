@@ -5,7 +5,7 @@
         <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= link_to @space.address, space_path(@space, anchor: "map") %></p>
     </div>
   </div>
-  <div class="space-photo" style="border-radius: 15px w-75">
+  <div class="space-photo">
     <% if @space.photo.attached? %>
       <%= cl_image_tag @space.photo.key %>
     <% else %>

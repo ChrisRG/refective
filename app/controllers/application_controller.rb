@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:index, :show]
 
   include Pundit
+  
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 
 # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?

@@ -2,7 +2,7 @@
   <div> 
     <h1><%= @space.name %></h1>
     <div class="d-flex">
-        <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= @space.address %></p>
+        <p class="ml-1"><i class="fas fa-map-marker-alt"></i> <%= link_to @space.address, space_path(@space, anchor: "map") %></p>
     </div>
   </div>
   <div class="space-photo" style="border-radius: 15px w-75">

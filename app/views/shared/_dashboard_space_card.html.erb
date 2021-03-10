@@ -32,6 +32,8 @@
       </p>
     </div>
     <p>Total bookings: <%= space.bookings.size %></p>
+    <p>Created <%= time_ago_in_words(space.created_at) %> ago </p>
+
       <div class="card-icons-dashboard">
 
         <% if policy(space).update? %>
@@ -41,9 +43,9 @@
         <% end %>
 
         <% if policy(space).destroy? %>
-          <%= link_to space_path(space), 
-            method: :delete, 
-            data: { confirm: "Are you sure you want to delete your space?" } do %> 
+          <%= link_to space_path(space),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete your space?" } do %>
             <i class="fa fa-trash"></i>
           <% end %>
         <% end %>

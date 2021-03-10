@@ -13,7 +13,7 @@
     </div>
     <div>
       <p class="truncate"><%= space.description %></p>
-      <p><i class="fas fa-toolbox"></i>
+      <p class="truncate"><i class="fas fa-toolbox"></i>
         <% space_items = [] %>
         <% space.space_item_types.each do |item| %>
           <% space_items << item.item_type.name %>

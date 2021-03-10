@@ -2,12 +2,17 @@
   <h4>Book a visit!</h4>
   <% if policy(Booking).create? %>
     <%= simple_form_for([@space, @booking]) do |f| %>
-      <%= f.association :item_type, collection: @space.item_types.all, label:"Select a repair category" %>
+      <%= f.association :item_type, collection: @space.item_types.all, label:"Select a repair category", input_html: {class: "select2"} %>
       <%= f.input :item_description, label: "What needs repairing?" %>
       <%= f.input :comment, label: "Leave a comment" %>
       <%= f.input :date, as: :string, input_html: {class: "datepicker"}, label: "Date and Time" %>
-      <%= f.input :photo, as: :file, label: "Add a photo!" %>
-      <%= f.submit class: "btn btn-success" %>
+      <label class="btn btn-primary" id="photo-submit">
+        Add a photo!
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+      <%= f.submit class: "btn btn-success", id: "submit" %>
     <% end %>
   <% end %>
 </div>

@@ -1,37 +1,40 @@
 <div class="space-reviews mt-3 border-bottom w-75">
   <h5>Reviews:</h5>
 
-  <% @reviews.each do |review| %>
-    <div class="">
+  <% if @reviews.empty? %>
+    <p>This space has no reviews yet. Be the first to review it!</p>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <div class="">
 
-      <div class="d-flex mt-3 mb-1">
-        <div>
-          <%= image_tag "https://res.cloudinary.com/chrisrg/image/upload/v1614771986/refective/user-circle-regular.svg", class: "avatar" %>
+        <div class="d-flex mt-3 mb-1">
+          <div>
+            <%= image_tag "https://res.cloudinary.com/chrisrg/image/upload/v1614771986/refective/user-circle-regular.svg", class: "avatar" %>
+          </div>
+
+          <div class="ml-2">
+            <p style="margin-bottom: 0">
+              <strong> <%= review.user.full_name %> </strong>
+            </p>
+            <p style="margin: 0"> <%= review.created_at.strftime("%B %Y") %> </p>
+
+          </div>
         </div>
 
-        <div class="ml-2">
-          <p style="margin-bottom: 0">
-            <strong> <%= review.user.full_name %> </strong>
-          </p>
-          <p style="margin: 0"> <%= review.created_at.strftime("%B %Y") %> </p>
+        <div class="mb-5">
+            <%review.rating.times do %>
+              <i class="fa fa-wrench"></i>
+            <% end %>
 
+            <% blank = 5 - review.rating %>
+            <% blank.times do %>
+              <i class="fa fa-wrench" style="opacity: 0.2"></i>
+            <% end %>
+
+            <p> <%= review.content %> </p>
         </div>
+
       </div>
-
-      <div class="mb-5">
-          <%review.rating.times do %>
-            <i class="fa fa-wrench"></i>
-          <% end %>
-
-          <% blank = 5 - review.rating %>
-          <% blank.times do %>
-            <i class="fa fa-wrench" style="opacity: 0.2"></i>
-          <% end %>
-
-          <p> <%= review.content %> </p>
-      </div>
-
-    </div>
+    <% end %>
   <% end %>
-
 </div>

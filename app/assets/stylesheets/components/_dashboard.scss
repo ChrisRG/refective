@@ -14,6 +14,13 @@
 .card-product-dashboard a:hover {
   text-decoration: none;
 }
+
+.card-product-dashboard:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  background: rgba(0, 0, 0, 0.0);
+}
+
 .card-product-dashboard img {
   height: 100%;
   width: 250px;

@@ -49,7 +49,7 @@ const filterSpaces = (id) => {
 };
 
 const initSpacesFilter = () => {
-  //const filter = initSelect2();
+  const filter = initSelect2();
   // filter.select2({ width: "45%" });
   filter.on("select2:select", (e) => {
     const id = e.currentTarget.value;

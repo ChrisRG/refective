@@ -19,7 +19,6 @@ const updateMapMarkers = () => {
   const displayedSpaces = document.querySelectorAll(".currently-displayed");
   const filteredMarkers = [];
   displayedSpaces.forEach((space) => {
-    console.log(space);
     const parsedCoords = JSON.parse(space.dataset.coordinates);
     filteredMarkers.push(parsedCoords);
   });

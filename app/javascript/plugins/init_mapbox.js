@@ -17,10 +17,18 @@ const clearMapMarkers = () => {
   mapMarkers = [];
 };
 
+
+
 const buildMarkers = (map, markersJSON) => {
   clearMapMarkers();
   markersJSON.forEach((marker) => {
-    const mapMarker = new mapboxgl.Marker();
+    // const element = document.createElement('div');
+    // element.className = 'marker';
+    // element.style.backgroundImage = `url('${marker.image_url}')`;
+    // element.style.backgroundSize = 'contain';
+    // element.style.width = '25px';
+    // element.style.height = '25px';
+    const mapMarker = new mapboxgl.Marker(/*element*/);
     mapMarker.setLngLat([marker.lng, marker.lat]);
     mapMarker.addTo(map);
     mapMarkers.push(mapMarker);

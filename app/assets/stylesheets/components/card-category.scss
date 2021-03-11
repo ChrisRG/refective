@@ -34,3 +34,9 @@
 .cards.card-index {
   width: 40%;
 }
+
+@media (min-width: 992px) {
+  .cards.card-index {
+    width: 70%;
+  }
+}

@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :update]
-  
+
   def show
     @message = Message.new
     @markers = [{ lat: @booking.space.latitude, lng: @booking.space.longitude}]
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       msg.booking = @booking
       msg.user = current_user
       msg.save
-      redirect_to dashboard_path, notice: "Booking created!"
+      redirect_to booking_path(@booking), notice: "Booking created!"
     else
       render "spaces/show"
     end

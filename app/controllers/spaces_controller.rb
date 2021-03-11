@@ -7,7 +7,8 @@ class SpacesController < ApplicationController
     @markers = @spaces.geocoded.map do |space|
       {
         lat: space.latitude,
-        lng: space.longitude
+        lng: space.longitude,
+        image_url: helpers.asset_url('map-icon.png')
       }
     end
   end

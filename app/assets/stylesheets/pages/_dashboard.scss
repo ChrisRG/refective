@@ -10,3 +10,21 @@
 .nav-tabs .nav-link {
   border-radius: 15px 15px 0 0;
 }
+
+.nav-tabs {
+  width: 60%;
+}
+
+.dashboard-container {
+  width: 50%;
+  margins: 0 auto;
+}
+
+.dashboard-container .text-container {
+  margin-top: 2em; 
+  padding-left: 5em;
+}
+
+.dashboard-container .nav-link.active {
+  font-weight: bold;
+}

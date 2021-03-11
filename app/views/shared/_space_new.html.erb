@@ -8,6 +8,11 @@
       <%= f.input :description %>
       <%= f.input :availability, label: "Opening times" %>
       <%= f.input :phone_number %>
-      <%= f.input :photo, as: :file, label: "Add a photo!" %>
-      <%= f.button :submit, class: "btn btn-outline-success" %>
+      <label class="btn btn-outline-success mb-3" id="photo-submit">
+        Add a photo!
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+      <%= f.button :submit, class: "btn btn-outline-success mb-3" %>
     <% end %>

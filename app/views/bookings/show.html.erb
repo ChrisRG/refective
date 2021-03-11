@@ -12,7 +12,11 @@
             <%= @booking.item_description %>
       </div>
       <div>
-        <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pocket-lint.com%2Fr%2Fs%2F970x%2Fassets%2Fimages%2F153836-headphones-news-bose-launches-its-gaming-headset-quietcomfort-35-ii-gaming-image1-7ayeqdlt8t.jpg&f=1&nofb=1" %>
+        <% if @booking.photo.attached? %>
+          <%= cl_image_tag @booking.photo.key %>
+        <% else %>
+          <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pocket-lint.com%2Fr%2Fs%2F970x%2Fassets%2Fimages%2F153836-headphones-news-bose-launches-its-gaming-headset-quietcomfort-35-ii-gaming-image1-7ayeqdlt8t.jpg&f=1&nofb=1" %>
+        <% end %>
       </div>
     </div>
 

@@ -7,8 +7,9 @@
   align-items: center;
   margin-bottom: 20px;
   margin-top: 10px;
-  border-radius: 15px;
-  width: 60%;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
   color: $banner-dark;
 }
 
@@ -89,7 +90,7 @@
 }
 
 .card-product-dashboard .truncate {
-  width: 350px;
+  width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

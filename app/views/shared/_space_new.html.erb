@@ -1,11 +1,11 @@
     <%= simple_form_for @space do |f| %>
-      <%= f.input :name, label: "Space name" %>
-      <%= f.association :item_types,
+      <%= f.input :name, label: "What's the name of the space?" %>
+      <%= f.association :item_types, label: "What can you repair there?",
                   as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
       <%= f.input :address %>
-      <%= f.input :description %>
+      <%= f.input :description, label: "Please provide a short description" %>
       <%= f.input :availability, label: "Opening times" %>
       <%= f.input :phone_number %>
       <label class="btn btn-outline-success mb-3" id="photo-submit">

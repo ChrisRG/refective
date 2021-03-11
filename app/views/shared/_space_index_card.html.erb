@@ -9,16 +9,16 @@
   </div>
   <div class="card-product-infos">
     <div class="card-product-title">
-      <h2><%= space.name %></h2>
+      <h2 class="truncate"><%= space.name %></h2>
     </div>
     <div>
       <p class="truncate"><%= space.description %></p>
-      <p class="truncate"><i class="fas fa-toolbox"></i>
-        <% space_items = [] %>
-        <% space.space_item_types.each do |item| %>
-          <% space_items << item.item_type.name %>
+      <p>
+        <% space.item_types.each do |item| %>
+          <span class="badge badge-pill badge-success"> 
+            <%= item.name %>
+          </span>
         <% end %>
-        <%= space_items.join(", ") %>
       </p>
     </div>
     <div>

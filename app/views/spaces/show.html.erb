@@ -12,7 +12,7 @@
         <%= render "shared/space_availability" %>
         <%= render "shared/space_reviews"  %>
       </div>
-        <div class="booking-form mb-5">
+        <div class="booking-form mb-5 <%= "d-none" if @space.user == current_user  %>">
           <%= render "shared/space_booking" %>
         </div>
     </div>

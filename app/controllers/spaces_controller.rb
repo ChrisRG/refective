@@ -8,7 +8,7 @@ class SpacesController < ApplicationController
       {
         lat: space.latitude,
         lng: space.longitude,
-        image_url: helpers.asset_url('map-icon.png')
+        # image_url: helpers.asset_url()
       }
     end
   end
